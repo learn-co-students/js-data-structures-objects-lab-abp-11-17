@@ -1,12 +1,28 @@
 // Write your solution in this file!
 const driver = {}
-debugger;
-console.log('test1')
-function updatedriverWithKeyAndValue(driver, key, value) {
-  debugger;
-  const newObj = Object.assign({}, driver, { key : value })
-  debugger;
+
+function updateDriverWithKeyAndValue(driver, key, value) {
+  const newObj = Object.assign({}, driver, { [key] : value })
+  ///debugger;
   console.log(newObj)
+  console.log(driver)
+  ///debugger;
   return newObj
 }
-console.log('test2')
+
+function destructivelyUpdateDriverWithKeyAndValue(obj, key, value) {
+  obj[key] = value;
+  return obj
+}
+
+function deleteFromDriverByKey(driver, key) {
+  const newObj = Object.assign({},driver);
+  delete newObj[key]
+  return newObj
+  return driver
+}
+
+function destructivelyDeleteFromDriverByKey(driver, key) {
+  delete driver[key]
+  return driver
+}
