@@ -1,19 +1,20 @@
 const expect = chai.expect;
 
+beforeEach(function () {
+  for (const key in driver) {
+    delete driver[key];
+  }
+
+  driver.name = 'Sam';
+  console.log('before every test in every file');
+});
+
 describe('drivers', function () {
   it('defines a `driver` driver', function () {
     expect(typeof driver).to.equal('object');
   });
 
   describe('updatedriverWithKeyAndValue(driver, key, value)', function () {
-    beforeEach(function () {
-      for (const key in driver) {
-        delete driver[key];
-      }
-
-      driver.name = 'Sam';
-    });
-
     it('returns an driver with the orignal key value pairs and the new key value pair', function () {
       expect(updateDriverWithKeyAndValue(driver, 'address', '11 Broadway')).to.eql({
         name: 'Sam',
